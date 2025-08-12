@@ -16,10 +16,8 @@ typedef struct {
     SystemInfo system;
 } systemMetrics;
 
-
-typedef struct systemManager systemManager;
-
 // Function prototypes for systemManager
+typedef struct systemManager systemManager;
 struct systemManager{
     systemMetrics metrics; // Thông tin hệ thống
     void (*update)(systemManager *self); // Cập nhật thông tin hệ thống
