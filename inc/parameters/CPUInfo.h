@@ -12,6 +12,6 @@ typedef struct {
     float frequency[MAX_CORES];          // MHz
     float temperature;                   // °C
     ProcessInfo top_processes[MAX_TOP_PROC];
-} CPUInfo;
+} cpuInfo;
 
 #endif // CPU_INFO_H

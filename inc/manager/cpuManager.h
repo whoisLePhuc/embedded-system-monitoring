@@ -6,7 +6,7 @@
 typedef struct cpuManager cpuManager;
 
 struct cpuManager{
-    CPUInfo cpu_info; // CPU informations
+    cpuInfo cpu_info; // CPU informations
     void (*update)(cpuManager *self); // Update CPU information
 };
 
