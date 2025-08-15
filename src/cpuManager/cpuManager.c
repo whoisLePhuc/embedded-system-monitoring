@@ -7,20 +7,6 @@
 #include "cpuManager/cpuManager.h"
 #include "cpuManager/cpuInfo.h"
 
-// Function to create a cpuManager object
-cpuManager *createCpuManager() {
-    cpuManager *manager = (cpuManager *)malloc(sizeof(cpuManager));
-    if (manager == NULL) {
-        perror("Failed to allocate memory for cpuManager");
-        return NULL;
-    }
-    memset(manager, 0, sizeof(cpuManager));
-    manager->update = updateCpuInfo;
-    manager->destroy = destroyCpuManager;
-    manager->display = displayCpuInfo;
-    return manager;
-}
-
 // Function to free memory of cpuManager object
 void destroyCpuManager(cpuManager *self){
     if(self != NULL) {
@@ -37,8 +23,7 @@ void displayCpuInfo(cpuManager* manager) {
         return;
     }
 
-    printf("\033[2J\033[1;1H"); // Xóa màn hình và di chuyển con trỏ lên đầu
-    
+    system("clear");
     printf("==================== CPU MONITOR ====================\n");
     printf("Total Usage: %.2f%%\n", manager->CpuInfo.totalUsage);
     printf("Temperature: %.2f C\n", manager->CpuInfo.temperature);
@@ -67,7 +52,7 @@ void displayCpuInfo(cpuManager* manager) {
 }
 
 // Function to update CPU information
-void updateCpuInfocp(cpuManager *self){
+void updateCpuInfo(cpuManager *self){
     if(self == NULL) {
         fprintf(stderr, "cpuManager pointer is NULL\n");
         return;
@@ -114,5 +99,19 @@ void updateCpuInfocp(cpuManager *self){
     }
 
     update_top_processes(&self->CpuInfo);
+}
+
+// Function to create a cpuManager object
+cpuManager *createCpuManager() {
+    cpuManager *manager = (cpuManager *)malloc(sizeof(cpuManager));
+    if (manager == NULL) {
+        perror("Failed to allocate memory for cpuManager");
+        return NULL;
+    }
+    memset(manager, 0, sizeof(cpuManager));
+    manager->update = updateCpuInfo;
+    manager->destroy = destroyCpuManager;
+    manager->display = displayCpuInfo;
+    return manager;
 }
 

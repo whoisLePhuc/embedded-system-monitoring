@@ -1,6 +1,0 @@
-#ifndef STORAGE_PARTITION_H
-#define STORAGE_PARTITION_H
-
-
-
-#endif // STORAGE_PARTITION_H

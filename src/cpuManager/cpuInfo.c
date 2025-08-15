@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include <dirent.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "cpuManager/cpuManager.h"
+
+typedef struct {
+    unsigned long long user, nice, system, idle, iowait, irq, softirq, steal;
+} CpuStatus;
+
+typedef struct {
+    unsigned long long user, nice, system, idle, iowait, irq, softirq, steal;
+} cpuCoreStatus;
+
+typedef struct {
+    pid_t pid;
+    unsigned long long process_time;
+} ProcessTimeSnapshot;
+
 
 // ========= Function to get CPU usage information =========
 int readCpuStatus(CpuStatus *stats) {
@@ -155,8 +173,8 @@ float get_cpu_temperature() {
 // ========= Function to get top 5 CPU process =========
 
 int compare_processes(const void *a, const void *b) {
-    ProcessInfo *p1 = (ProcessInfo *)a;
-    ProcessInfo *p2 = (ProcessInfo *)b;
+    cpuProcessInfo *p1 = (cpuProcessInfo *)a;
+    cpuProcessInfo *p2 = (cpuProcessInfo *)b;
     if (p1->cpu_usage < p2->cpu_usage) return 1;
     if (p1->cpu_usage > p2->cpu_usage) return -1;
     return 0;
@@ -175,7 +193,7 @@ unsigned long long get_total_cpu_time() {
     return total_time;
 }
 
-ProcessInfo* get_top_cpu_processes(int* process_count_out) {
+cpuProcessInfo* get_top_cpu_processes(int* process_count_out) {
     DIR *proc_dir;
     struct dirent *entry;
     
@@ -218,7 +236,7 @@ ProcessInfo* get_top_cpu_processes(int* process_count_out) {
     unsigned long long total_time2 = get_total_cpu_time();
     unsigned long long total_time_delta = total_time2 - total_time1;
 
-    ProcessInfo *final_results = NULL;
+    cpuProcessInfo *final_results = NULL;
     int final_count = 0;
 
     for (int i = 0; i < count1; i++) {
@@ -240,9 +258,9 @@ ProcessInfo* get_top_cpu_processes(int* process_count_out) {
             }
 
             final_count++;
-            final_results = realloc(final_results, final_count * sizeof(ProcessInfo));
+            final_results = realloc(final_results, final_count * sizeof(cpuProcessInfo));
             
-            ProcessInfo *current_result = &final_results[final_count - 1];
+            cpuProcessInfo *current_result = &final_results[final_count - 1];
             current_result->pid = snapshots1[i].pid;
             current_result->cpu_usage = cpu_usage;
 
@@ -256,21 +274,21 @@ ProcessInfo* get_top_cpu_processes(int* process_count_out) {
         }
     }
     free(snapshots1);
-    qsort(final_results, final_count, sizeof(ProcessInfo), compare_processes);
+    qsort(final_results, final_count, sizeof(cpuProcessInfo), compare_processes);
     *process_count_out = final_count;
     return final_results;
 }
 
-void updateTopProcesses(cpuInfo* cpu_data) {
+void update_top_processes(cpuInfo* cpu_data) {
     int process_count;
-    ProcessInfo* processes = get_top_cpu_processes(&process_count);
+    cpuProcessInfo* processes = get_top_cpu_processes(&process_count);
     if (processes != NULL) {
         int count_to_copy = (process_count < MAX_TOP_PROC) ? process_count : MAX_TOP_PROC;
         for (int i = 0; i < count_to_copy; i++) {
             cpu_data->topProcesses[i] = processes[i];
         }
         for (int i = count_to_copy; i < MAX_TOP_PROC; i++) {
-            memset(&cpu_data->topProcesses[i], 0, sizeof(ProcessInfo));
+            memset(&cpu_data->topProcesses[i], 0, sizeof(cpuProcessInfo));
         }
         free(processes);
     } else {

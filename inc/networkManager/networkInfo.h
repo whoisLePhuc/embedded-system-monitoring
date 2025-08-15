@@ -2,24 +2,36 @@
 #define NETWORK_INFO_H
 
 #define MAX_INTERFACES 8
-#define MAX_NAME_LEN 64
+#define MAX_NAME_LEN 16
+#define MAX_IP_ADDRESSES 5
+
+#include <ifaddrs.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 typedef struct {
-    char interface_name[MAX_NAME_LEN];
-    float upload_speed;    // MB/s
-    float download_speed;  // MB/s
-    float bandwidth_usage; // %
-    unsigned long long connection_count;
-    char ip_address[64];
-    struct {
-        unsigned long long tx_packets;
-        unsigned long long rx_packets;
-    } packet_stats;
-} NetworkInterface;
+    char name[MAX_NAME_LEN];
+    float upload_speed_kbps;
+    float download_speed_kbps;
+    unsigned long long rx_packets_per_sec;
+    unsigned long long tx_packets_per_sec;
+} NetIOInfo;
 
 typedef struct {
-    NetworkInterface interfaces[MAX_INTERFACES];
-    int interface_count;
-} NetworkInfo;
+    char name[MAX_NAME_LEN];
+    unsigned long long rx_bytes_pre;
+    unsigned long long tx_bytes_pre;
+    unsigned long long rx_packets_pre;
+    unsigned long long tx_packets_pre;
+} NetStatsSnapshot;
+
+typedef struct {
+    char name[MAX_NAME_LEN];
+    char ip_address[INET_ADDRSTRLEN];
+} IPAddressInfo;
+
+void getNetStats(NetIOInfo io_info[], int *count);
+void getIpAddresses(IPAddressInfo ip_info[], int *count);
+int get_connection_count();
 
 #endif // NETWORK_INFO_H

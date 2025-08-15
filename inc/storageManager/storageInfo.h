@@ -1,22 +1,36 @@
 #ifndef STORAGE_INFO_H
 #define STORAGE_INFO_H
 
-#define MAX_NAME_LEN 64
+#define MAX_PARTITIONS 4
+#define MAX_DISKS 4
 
 typedef struct {
-    char mount_point[MAX_NAME_LEN];
-    float used_space;     // GB
-    float free_space;     // GB
-    float read_speed;     // MB/s
-    float write_speed;    // MB/s
-    unsigned long long io_read_ops;  // Số I/O đọc
-    unsigned long long io_write_ops; // Số I/O ghi
-    float iops;           // Input/Output Operations Per Second
-} StoragePartition;
+    char partitionName[256];
+    long long totalBlocks;
+    long long freeBlocks;
+    long long usedBlocks;
+    long long totalSize;  //in MB
+    long long freeSize;//in MB
+    long long usedSize;//in MB
+} PartitionInfo;
 
 typedef struct {
-    StoragePartition partitions[8];
-    int partition_count;
-} StorageInfo;
+    char name[128];
+    float read_speed_mbps;
+    float write_speed_mbps;
+    unsigned long long reads_per_second;
+    unsigned long long writes_per_second;
+} DiskIOInfo;
+
+typedef struct {
+    char name[128];
+    unsigned long long reads_completed_pre;
+    unsigned long long sectors_read_pre;
+    unsigned long long writes_completed_pre;
+    unsigned long long sectors_written_pre;
+} DiskStatsSnapshot;
+
+void getPartitionInfo(PartitionInfo partitions[], int *count);
+void getDiskStats(DiskIOInfo io_info[], int *count);
 
 #endif // STORAGE_INFO_H
