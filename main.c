@@ -1,27 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "subManager/cpuManager.h"
+#include "cpuManager/cpuManager.h"
 
-int main(){
-    // Create a CPU manager instance
-    cpuManager *manager = createCpuManager();
-    if(manager == NULL) {
-        fprintf(stderr, "Failed to create CPU manager\n");
+int main() {
+    cpuManager *CpuManager = createCpuManager();
+    if (CpuManager == NULL) {
         return 1;
     }
-    while(1){
-        // Update CPU information
-        manager->update(manager);
-        
-        // Display total CPU usage
-        printf("Total CPU Usage: %.2f%%\n", manager->cpu_info.total_usage);
-        sleep(1); // Sleep for 1 second before the next update
+    while (1) {
+        CpuManager->update(CpuManager);
+        CpuManager->display(CpuManager);
+        sleep(1);
     }
-    
-
-    // Clean up
-    destroyCpuManager(manager);
-    
+    CpuManager->destroy(CpuManager);
     return 0;
 }

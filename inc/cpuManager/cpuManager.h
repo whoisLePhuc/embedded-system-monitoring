@@ -1,13 +1,15 @@
 #ifndef CPU_MANAGER_H
 #define CPU_MANAGER_H
 
-#include "parameters/CPUInfo.h"
+#include "cpuInfo.h"
 
 typedef struct cpuManager cpuManager;
 
 struct cpuManager{
-    cpuInfo cpu_info; // CPU informations
+    cpuInfo CpuInfo; // CPU informations
     void (*update)(cpuManager *self); // Update CPU information
+    void (*destroy)(cpuManager *self); // Free memory of cpuManager object
+    void (*display)(cpuManager *self); // Display CPU information
 };
 
 // Funtion to get CPU total usage 
