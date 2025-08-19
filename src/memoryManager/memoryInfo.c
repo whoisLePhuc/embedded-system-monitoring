@@ -13,7 +13,6 @@ void getMemoryInfo(MemoryInfo *mem_info) {
         memset(mem_info, 0, sizeof(MemoryInfo));
         return;
     }
-
     char line[256];
     while (fgets(line, sizeof(line), fp)) {
         if (strstr(line, "MemTotal:")) {
@@ -29,7 +28,6 @@ void getMemoryInfo(MemoryInfo *mem_info) {
         }
     }
     fclose(fp);
-    
     mem_info->usedRam = mem_info->totalRam - mem_info->freeRam;
     mem_info->usedSwap = mem_info->totalSwap - mem_info->freeSwap;
 }
@@ -49,19 +47,16 @@ void getTopMemoryProcesses(ramProcessInfo topProcesses[], int top_n) {
     struct dirent *entry;
     ramProcessInfo *allProcesses = NULL;
     int processCount = 0;
-
     proc_dir = opendir("/proc");
     if (!proc_dir) {
         perror("Error opening /proc");
         return;
     }
-
     while ((entry = readdir(proc_dir)) != NULL) {
         if (isdigit(entry->d_name[0])) {
-            char path[256];
+            char path[512];
             char name[MAX_NAME_PROC] = "N/A";
             long vm_rss = 0;
-
             snprintf(path, sizeof(path), "/proc/%s/status", entry->d_name);
             FILE *fp = fopen(path, "r");
             if (fp) {
@@ -76,7 +71,6 @@ void getTopMemoryProcesses(ramProcessInfo topProcesses[], int top_n) {
                     }
                 }
                 fclose(fp);
-
                 if (vm_rss > 0) {
                     processCount++;
                     allProcesses = realloc(allProcesses, processCount * sizeof(ramProcessInfo));
@@ -88,15 +82,12 @@ void getTopMemoryProcesses(ramProcessInfo topProcesses[], int top_n) {
         }
     }
     closedir(proc_dir);
-
     if (processCount > 0) {
         qsort(allProcesses, processCount, sizeof(ramProcessInfo), compareMemUsage);
-        
         int limit = (processCount < top_n) ? processCount : top_n;
         for (int i = 0; i < limit; i++) {
             topProcesses[i] = allProcesses[i];
         }
-
         free(allProcesses);
     }
 }

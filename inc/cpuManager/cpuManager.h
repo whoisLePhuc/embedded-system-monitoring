@@ -6,10 +6,10 @@
 typedef struct cpuManager cpuManager;
 
 struct cpuManager{
-    cpuInfo CpuInfo; // CPU informations
-    void (*update)(cpuManager *self); // Update CPU information
-    void (*destroy)(cpuManager *self); // Free memory of cpuManager object
-    void (*display)(cpuManager *self); // Display CPU information
+    cpuInfo CpuInfo;
+    void (*update)(cpuManager *self); 
+    void (*destroy)(cpuManager *self);
+    void (*display)(cpuManager *self);
 };
 
 // Funtion to get CPU total usage 

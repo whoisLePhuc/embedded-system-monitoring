@@ -39,7 +39,6 @@ void displayMemoryInfo(memoryManager *self) {
     printf("Swap Used:  %ld MB\n", mem_info->usedSwap / 1024);
     printf("Swap Free:  %ld MB\n", mem_info->freeSwap / 1024);
     printf("--------------------------------------------------------\n");
-    
     printf("Top %d Processes by RAM Usage:\n", MAX_TOP_PROC);
     printf("%-10s %-20s %-10s\n", "PID", "NAME", "RAM (MB)");
     for (int i = 0; i < MAX_TOP_PROC; i++) {

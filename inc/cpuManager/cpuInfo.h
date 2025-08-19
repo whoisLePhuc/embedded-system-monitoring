@@ -7,7 +7,7 @@
 
 typedef struct {
     pid_t pid;              // Process ID
-    char name[MAX_NAME_PROC]; // Tên tiến trình
+    char name[MAX_NAME_PROC]; // Process name
     float cpu_usage;         // %
 } cpuProcessInfo;
 

@@ -10,7 +10,8 @@ include_directories(
     inc/networkManager
     inc/storageManager
     inc/systemManager
+    inc/monitorManager
 )
 
-add_executable(systemMonitoring main.c ${SRC_FILES})
+add_executable(main main.c ${SRC_FILES})
 

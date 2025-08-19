@@ -1,8 +1,8 @@
 {
     "files.associations": {
-        "dirent.h": "c",
-        "cpuinfo.h": "c",
-        "memorymanager.h": "c",
-        "memory_resource": "c"
+        "storagemanager.h": "c",
+        "systemmanager.h": "c",
+        "monitormanager.h": "c",
+        "networkmanager.h": "c"
     }
 }

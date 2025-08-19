@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named systemMonitoring
+# Target rules for targets named main
 
 # Build rule for target.
-systemMonitoring: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 systemMonitoring
-.PHONY : systemMonitoring
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-systemMonitoring/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/build
-.PHONY : systemMonitoring/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 main.o: main.c.o
 .PHONY : main.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -142,7 +142,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -150,7 +150,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
 .PHONY : main.c.s
 
 src/cpuManager/cpuInfo.o: src/cpuManager/cpuInfo.c.o
@@ -158,7 +158,7 @@ src/cpuManager/cpuInfo.o: src/cpuManager/cpuInfo.c.o
 
 # target to build an object file
 src/cpuManager/cpuInfo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuInfo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o
 .PHONY : src/cpuManager/cpuInfo.c.o
 
 src/cpuManager/cpuInfo.i: src/cpuManager/cpuInfo.c.i
@@ -166,7 +166,7 @@ src/cpuManager/cpuInfo.i: src/cpuManager/cpuInfo.c.i
 
 # target to preprocess a source file
 src/cpuManager/cpuInfo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuInfo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.i
 .PHONY : src/cpuManager/cpuInfo.c.i
 
 src/cpuManager/cpuInfo.s: src/cpuManager/cpuInfo.c.s
@@ -174,7 +174,7 @@ src/cpuManager/cpuInfo.s: src/cpuManager/cpuInfo.c.s
 
 # target to generate assembly for a file
 src/cpuManager/cpuInfo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuInfo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.s
 .PHONY : src/cpuManager/cpuInfo.c.s
 
 src/cpuManager/cpuManager.o: src/cpuManager/cpuManager.c.o
@@ -182,7 +182,7 @@ src/cpuManager/cpuManager.o: src/cpuManager/cpuManager.c.o
 
 # target to build an object file
 src/cpuManager/cpuManager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuManager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o
 .PHONY : src/cpuManager/cpuManager.c.o
 
 src/cpuManager/cpuManager.i: src/cpuManager/cpuManager.c.i
@@ -190,7 +190,7 @@ src/cpuManager/cpuManager.i: src/cpuManager/cpuManager.c.i
 
 # target to preprocess a source file
 src/cpuManager/cpuManager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuManager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuManager.c.i
 .PHONY : src/cpuManager/cpuManager.c.i
 
 src/cpuManager/cpuManager.s: src/cpuManager/cpuManager.c.s
@@ -198,7 +198,7 @@ src/cpuManager/cpuManager.s: src/cpuManager/cpuManager.c.s
 
 # target to generate assembly for a file
 src/cpuManager/cpuManager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/cpuManager/cpuManager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuManager.c.s
 .PHONY : src/cpuManager/cpuManager.c.s
 
 src/memoryManager/memoryInfo.o: src/memoryManager/memoryInfo.c.o
@@ -206,7 +206,7 @@ src/memoryManager/memoryInfo.o: src/memoryManager/memoryInfo.c.o
 
 # target to build an object file
 src/memoryManager/memoryInfo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryInfo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o
 .PHONY : src/memoryManager/memoryInfo.c.o
 
 src/memoryManager/memoryInfo.i: src/memoryManager/memoryInfo.c.i
@@ -214,7 +214,7 @@ src/memoryManager/memoryInfo.i: src/memoryManager/memoryInfo.c.i
 
 # target to preprocess a source file
 src/memoryManager/memoryInfo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryInfo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.i
 .PHONY : src/memoryManager/memoryInfo.c.i
 
 src/memoryManager/memoryInfo.s: src/memoryManager/memoryInfo.c.s
@@ -222,7 +222,7 @@ src/memoryManager/memoryInfo.s: src/memoryManager/memoryInfo.c.s
 
 # target to generate assembly for a file
 src/memoryManager/memoryInfo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryInfo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.s
 .PHONY : src/memoryManager/memoryInfo.c.s
 
 src/memoryManager/memoryManager.o: src/memoryManager/memoryManager.c.o
@@ -230,7 +230,7 @@ src/memoryManager/memoryManager.o: src/memoryManager/memoryManager.c.o
 
 # target to build an object file
 src/memoryManager/memoryManager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryManager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o
 .PHONY : src/memoryManager/memoryManager.c.o
 
 src/memoryManager/memoryManager.i: src/memoryManager/memoryManager.c.i
@@ -238,7 +238,7 @@ src/memoryManager/memoryManager.i: src/memoryManager/memoryManager.c.i
 
 # target to preprocess a source file
 src/memoryManager/memoryManager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryManager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryManager.c.i
 .PHONY : src/memoryManager/memoryManager.c.i
 
 src/memoryManager/memoryManager.s: src/memoryManager/memoryManager.c.s
@@ -246,15 +246,39 @@ src/memoryManager/memoryManager.s: src/memoryManager/memoryManager.c.s
 
 # target to generate assembly for a file
 src/memoryManager/memoryManager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/memoryManager/memoryManager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/memoryManager/memoryManager.c.s
 .PHONY : src/memoryManager/memoryManager.c.s
+
+src/monitorManager/monitorManager.o: src/monitorManager/monitorManager.c.o
+.PHONY : src/monitorManager/monitorManager.o
+
+# target to build an object file
+src/monitorManager/monitorManager.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o
+.PHONY : src/monitorManager/monitorManager.c.o
+
+src/monitorManager/monitorManager.i: src/monitorManager/monitorManager.c.i
+.PHONY : src/monitorManager/monitorManager.i
+
+# target to preprocess a source file
+src/monitorManager/monitorManager.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/monitorManager/monitorManager.c.i
+.PHONY : src/monitorManager/monitorManager.c.i
+
+src/monitorManager/monitorManager.s: src/monitorManager/monitorManager.c.s
+.PHONY : src/monitorManager/monitorManager.s
+
+# target to generate assembly for a file
+src/monitorManager/monitorManager.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/monitorManager/monitorManager.c.s
+.PHONY : src/monitorManager/monitorManager.c.s
 
 src/networkManager/networkInfo.o: src/networkManager/networkInfo.c.o
 .PHONY : src/networkManager/networkInfo.o
 
 # target to build an object file
 src/networkManager/networkInfo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkInfo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkInfo.c.o
 .PHONY : src/networkManager/networkInfo.c.o
 
 src/networkManager/networkInfo.i: src/networkManager/networkInfo.c.i
@@ -262,7 +286,7 @@ src/networkManager/networkInfo.i: src/networkManager/networkInfo.c.i
 
 # target to preprocess a source file
 src/networkManager/networkInfo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkInfo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkInfo.c.i
 .PHONY : src/networkManager/networkInfo.c.i
 
 src/networkManager/networkInfo.s: src/networkManager/networkInfo.c.s
@@ -270,7 +294,7 @@ src/networkManager/networkInfo.s: src/networkManager/networkInfo.c.s
 
 # target to generate assembly for a file
 src/networkManager/networkInfo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkInfo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkInfo.c.s
 .PHONY : src/networkManager/networkInfo.c.s
 
 src/networkManager/networkManager.o: src/networkManager/networkManager.c.o
@@ -278,7 +302,7 @@ src/networkManager/networkManager.o: src/networkManager/networkManager.c.o
 
 # target to build an object file
 src/networkManager/networkManager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkManager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkManager.c.o
 .PHONY : src/networkManager/networkManager.c.o
 
 src/networkManager/networkManager.i: src/networkManager/networkManager.c.i
@@ -286,7 +310,7 @@ src/networkManager/networkManager.i: src/networkManager/networkManager.c.i
 
 # target to preprocess a source file
 src/networkManager/networkManager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkManager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkManager.c.i
 .PHONY : src/networkManager/networkManager.c.i
 
 src/networkManager/networkManager.s: src/networkManager/networkManager.c.s
@@ -294,7 +318,7 @@ src/networkManager/networkManager.s: src/networkManager/networkManager.c.s
 
 # target to generate assembly for a file
 src/networkManager/networkManager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/networkManager/networkManager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/networkManager/networkManager.c.s
 .PHONY : src/networkManager/networkManager.c.s
 
 src/storageManager/storageInfo.o: src/storageManager/storageInfo.c.o
@@ -302,7 +326,7 @@ src/storageManager/storageInfo.o: src/storageManager/storageInfo.c.o
 
 # target to build an object file
 src/storageManager/storageInfo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageInfo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageInfo.c.o
 .PHONY : src/storageManager/storageInfo.c.o
 
 src/storageManager/storageInfo.i: src/storageManager/storageInfo.c.i
@@ -310,7 +334,7 @@ src/storageManager/storageInfo.i: src/storageManager/storageInfo.c.i
 
 # target to preprocess a source file
 src/storageManager/storageInfo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageInfo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageInfo.c.i
 .PHONY : src/storageManager/storageInfo.c.i
 
 src/storageManager/storageInfo.s: src/storageManager/storageInfo.c.s
@@ -318,7 +342,7 @@ src/storageManager/storageInfo.s: src/storageManager/storageInfo.c.s
 
 # target to generate assembly for a file
 src/storageManager/storageInfo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageInfo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageInfo.c.s
 .PHONY : src/storageManager/storageInfo.c.s
 
 src/storageManager/storageManager.o: src/storageManager/storageManager.c.o
@@ -326,7 +350,7 @@ src/storageManager/storageManager.o: src/storageManager/storageManager.c.o
 
 # target to build an object file
 src/storageManager/storageManager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageManager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageManager.c.o
 .PHONY : src/storageManager/storageManager.c.o
 
 src/storageManager/storageManager.i: src/storageManager/storageManager.c.i
@@ -334,7 +358,7 @@ src/storageManager/storageManager.i: src/storageManager/storageManager.c.i
 
 # target to preprocess a source file
 src/storageManager/storageManager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageManager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageManager.c.i
 .PHONY : src/storageManager/storageManager.c.i
 
 src/storageManager/storageManager.s: src/storageManager/storageManager.c.s
@@ -342,7 +366,7 @@ src/storageManager/storageManager.s: src/storageManager/storageManager.c.s
 
 # target to generate assembly for a file
 src/storageManager/storageManager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/storageManager/storageManager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/storageManager/storageManager.c.s
 .PHONY : src/storageManager/storageManager.c.s
 
 src/systemManager/systemInfo.o: src/systemManager/systemInfo.c.o
@@ -350,7 +374,7 @@ src/systemManager/systemInfo.o: src/systemManager/systemInfo.c.o
 
 # target to build an object file
 src/systemManager/systemInfo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemInfo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemInfo.c.o
 .PHONY : src/systemManager/systemInfo.c.o
 
 src/systemManager/systemInfo.i: src/systemManager/systemInfo.c.i
@@ -358,7 +382,7 @@ src/systemManager/systemInfo.i: src/systemManager/systemInfo.c.i
 
 # target to preprocess a source file
 src/systemManager/systemInfo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemInfo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemInfo.c.i
 .PHONY : src/systemManager/systemInfo.c.i
 
 src/systemManager/systemInfo.s: src/systemManager/systemInfo.c.s
@@ -366,7 +390,7 @@ src/systemManager/systemInfo.s: src/systemManager/systemInfo.c.s
 
 # target to generate assembly for a file
 src/systemManager/systemInfo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemInfo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemInfo.c.s
 .PHONY : src/systemManager/systemInfo.c.s
 
 src/systemManager/systemManager.o: src/systemManager/systemManager.c.o
@@ -374,7 +398,7 @@ src/systemManager/systemManager.o: src/systemManager/systemManager.c.o
 
 # target to build an object file
 src/systemManager/systemManager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemManager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemManager.c.o
 .PHONY : src/systemManager/systemManager.c.o
 
 src/systemManager/systemManager.i: src/systemManager/systemManager.c.i
@@ -382,7 +406,7 @@ src/systemManager/systemManager.i: src/systemManager/systemManager.c.i
 
 # target to preprocess a source file
 src/systemManager/systemManager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemManager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemManager.c.i
 .PHONY : src/systemManager/systemManager.c.i
 
 src/systemManager/systemManager.s: src/systemManager/systemManager.c.s
@@ -390,7 +414,7 @@ src/systemManager/systemManager.s: src/systemManager/systemManager.c.s
 
 # target to generate assembly for a file
 src/systemManager/systemManager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/systemMonitoring.dir/build.make CMakeFiles/systemMonitoring.dir/src/systemManager/systemManager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systemManager/systemManager.c.s
 .PHONY : src/systemManager/systemManager.c.s
 
 # Help Target
@@ -401,7 +425,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... systemMonitoring"
+	@echo "... main"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -417,6 +441,9 @@ help:
 	@echo "... src/memoryManager/memoryManager.o"
 	@echo "... src/memoryManager/memoryManager.i"
 	@echo "... src/memoryManager/memoryManager.s"
+	@echo "... src/monitorManager/monitorManager.o"
+	@echo "... src/monitorManager/monitorManager.i"
+	@echo "... src/monitorManager/monitorManager.s"
 	@echo "... src/networkManager/networkInfo.o"
 	@echo "... src/networkManager/networkInfo.i"
 	@echo "... src/networkManager/networkInfo.s"

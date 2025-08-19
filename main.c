@@ -5,7 +5,40 @@
 #include "memoryManager/memoryManager.h"
 #include "storageManager/storageManager.h"
 #include "networkManager/networkManager.h"
+#include "systemManager/systemManager.h"
+#include "monitorManager/monitorManager.h"
 
+int main(){
+    MonitorManager *manager = createMonitorManager();
+    if (manager == NULL) {
+        return 1;
+    }
+    while(1){
+        manager->updateInfo(manager);
+        system("clear");
+        manager->displayInfo(manager);
+    }
+    destroyMonitorManager(manager);
+    return 0;
+}
+
+/*
+int main(){
+    systemManager *SystemManager = createSystemManager();
+    // Main loop
+    while (1) {
+        SystemManager->update(SystemManager);
+        SystemManager->display(SystemManager);
+        sleep(1); // Sleep for a second before the next update
+    }
+
+    // Cleanup
+    SystemManager->destroy(SystemManager);
+    return 0;
+}
+*/
+
+/*
 int main(){
     NetworkManager *NetworkManager = createNetworkManager();
     // Main loop
@@ -19,6 +52,7 @@ int main(){
     NetworkManager->destroy(NetworkManager);
     return 0;
 }
+*/
 
 /*
 int main() {

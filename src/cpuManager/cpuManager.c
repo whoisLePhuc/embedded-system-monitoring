@@ -65,7 +65,6 @@ void updateCpuInfo(cpuManager *self){
     int core_count;
     float* usage_array = get_per_core_cpu_usage(&core_count);
     if (usage_array != NULL) {
-        // Sao chép dữ liệu và lưu số lượng core thực tế
         if(core_count <= MAX_CORES) {
             for (int i = 0; i < core_count; i++) {
                 self->CpuInfo.coreUsage[i] = usage_array[i];
@@ -82,7 +81,6 @@ void updateCpuInfo(cpuManager *self){
     }
 
     float* frequencies = get_cpu_frequency(&core_count);
-    // Kiểm tra số lượng core có khớp không để đảm bảo dữ liệu hợp lệ
     if (frequencies != NULL && core_count == self->CpuInfo.coreCount) {
         for (int i = 0; i < core_count; i++) {
             self->CpuInfo.frequency[i] = frequencies[i];

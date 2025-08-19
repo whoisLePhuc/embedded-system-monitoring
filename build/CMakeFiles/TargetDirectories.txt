@@ -1,3 +1,3 @@
-/home/lephuc/embedded-system-monitoring/build/CMakeFiles/systemMonitoring.dir
+/home/lephuc/embedded-system-monitoring/build/CMakeFiles/main.dir
 /home/lephuc/embedded-system-monitoring/build/CMakeFiles/edit_cache.dir
 /home/lephuc/embedded-system-monitoring/build/CMakeFiles/rebuild_cache.dir
