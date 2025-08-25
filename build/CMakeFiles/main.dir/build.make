@@ -111,10 +111,24 @@ CMakeFiles/main.dir/src/cpuManager/cpuManager.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cpuManager/cpuManager.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c -o CMakeFiles/main.dir/src/cpuManager/cpuManager.c.s
 
+CMakeFiles/main.dir/src/logger/logger.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/logger/logger.c.o: ../src/logger/logger.c
+CMakeFiles/main.dir/src/logger/logger.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/src/logger/logger.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/logger/logger.c.o -MF CMakeFiles/main.dir/src/logger/logger.c.o.d -o CMakeFiles/main.dir/src/logger/logger.c.o -c /home/lephuc/embedded-system-monitoring/src/logger/logger.c
+
+CMakeFiles/main.dir/src/logger/logger.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/logger/logger.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lephuc/embedded-system-monitoring/src/logger/logger.c > CMakeFiles/main.dir/src/logger/logger.c.i
+
+CMakeFiles/main.dir/src/logger/logger.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/logger/logger.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lephuc/embedded-system-monitoring/src/logger/logger.c -o CMakeFiles/main.dir/src/logger/logger.c.s
+
 CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o: ../src/memoryManager/memoryInfo.c
 CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o -MF CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o.d -o CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o -c /home/lephuc/embedded-system-monitoring/src/memoryManager/memoryInfo.c
 
 CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.s: cmake_force
 CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o: ../src/memoryManager/memoryManager.c
 CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o -MF CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o.d -o CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o -c /home/lephuc/embedded-system-monitoring/src/memoryManager/memoryManager.c
 
 CMakeFiles/main.dir/src/memoryManager/memoryManager.c.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/main.dir/src/memoryManager/memoryManager.c.s: cmake_force
 CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o: ../src/monitorManager/monitorManager.c
 CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o -MF CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o.d -o CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o -c /home/lephuc/embedded-system-monitoring/src/monitorManager/monitorManager.c
 
 CMakeFiles/main.dir/src/monitorManager/monitorManager.c.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/main.dir/src/monitorManager/monitorManager.c.s: cmake_force
 CMakeFiles/main.dir/src/networkManager/networkInfo.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/networkManager/networkInfo.c.o: ../src/networkManager/networkInfo.c
 CMakeFiles/main.dir/src/networkManager/networkInfo.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main.dir/src/networkManager/networkInfo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main.dir/src/networkManager/networkInfo.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/networkManager/networkInfo.c.o -MF CMakeFiles/main.dir/src/networkManager/networkInfo.c.o.d -o CMakeFiles/main.dir/src/networkManager/networkInfo.c.o -c /home/lephuc/embedded-system-monitoring/src/networkManager/networkInfo.c
 
 CMakeFiles/main.dir/src/networkManager/networkInfo.c.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/main.dir/src/networkManager/networkInfo.c.s: cmake_force
 CMakeFiles/main.dir/src/networkManager/networkManager.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/networkManager/networkManager.c.o: ../src/networkManager/networkManager.c
 CMakeFiles/main.dir/src/networkManager/networkManager.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main.dir/src/networkManager/networkManager.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main.dir/src/networkManager/networkManager.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/networkManager/networkManager.c.o -MF CMakeFiles/main.dir/src/networkManager/networkManager.c.o.d -o CMakeFiles/main.dir/src/networkManager/networkManager.c.o -c /home/lephuc/embedded-system-monitoring/src/networkManager/networkManager.c
 
 CMakeFiles/main.dir/src/networkManager/networkManager.c.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/main.dir/src/networkManager/networkManager.c.s: cmake_force
 CMakeFiles/main.dir/src/storageManager/storageInfo.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/storageManager/storageInfo.c.o: ../src/storageManager/storageInfo.c
 CMakeFiles/main.dir/src/storageManager/storageInfo.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main.dir/src/storageManager/storageInfo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main.dir/src/storageManager/storageInfo.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/storageManager/storageInfo.c.o -MF CMakeFiles/main.dir/src/storageManager/storageInfo.c.o.d -o CMakeFiles/main.dir/src/storageManager/storageInfo.c.o -c /home/lephuc/embedded-system-monitoring/src/storageManager/storageInfo.c
 
 CMakeFiles/main.dir/src/storageManager/storageInfo.c.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/main.dir/src/storageManager/storageInfo.c.s: cmake_force
 CMakeFiles/main.dir/src/storageManager/storageManager.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/storageManager/storageManager.c.o: ../src/storageManager/storageManager.c
 CMakeFiles/main.dir/src/storageManager/storageManager.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main.dir/src/storageManager/storageManager.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/main.dir/src/storageManager/storageManager.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/storageManager/storageManager.c.o -MF CMakeFiles/main.dir/src/storageManager/storageManager.c.o.d -o CMakeFiles/main.dir/src/storageManager/storageManager.c.o -c /home/lephuc/embedded-system-monitoring/src/storageManager/storageManager.c
 
 CMakeFiles/main.dir/src/storageManager/storageManager.c.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/main.dir/src/storageManager/storageManager.c.s: cmake_force
 CMakeFiles/main.dir/src/systemManager/systemInfo.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/systemManager/systemInfo.c.o: ../src/systemManager/systemInfo.c
 CMakeFiles/main.dir/src/systemManager/systemInfo.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/main.dir/src/systemManager/systemInfo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/main.dir/src/systemManager/systemInfo.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/systemManager/systemInfo.c.o -MF CMakeFiles/main.dir/src/systemManager/systemInfo.c.o.d -o CMakeFiles/main.dir/src/systemManager/systemInfo.c.o -c /home/lephuc/embedded-system-monitoring/src/systemManager/systemInfo.c
 
 CMakeFiles/main.dir/src/systemManager/systemInfo.c.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/main.dir/src/systemManager/systemInfo.c.s: cmake_force
 CMakeFiles/main.dir/src/systemManager/systemManager.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/systemManager/systemManager.c.o: ../src/systemManager/systemManager.c
 CMakeFiles/main.dir/src/systemManager/systemManager.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/main.dir/src/systemManager/systemManager.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/main.dir/src/systemManager/systemManager.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/systemManager/systemManager.c.o -MF CMakeFiles/main.dir/src/systemManager/systemManager.c.o.d -o CMakeFiles/main.dir/src/systemManager/systemManager.c.o -c /home/lephuc/embedded-system-monitoring/src/systemManager/systemManager.c
 
 CMakeFiles/main.dir/src/systemManager/systemManager.c.i: cmake_force
@@ -242,6 +256,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.o" \
 "CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o" \
 "CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o" \
+"CMakeFiles/main.dir/src/logger/logger.c.o" \
 "CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o" \
 "CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o" \
 "CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o" \
@@ -258,6 +273,7 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/main.c.o
 main: CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o
 main: CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o
+main: CMakeFiles/main.dir/src/logger/logger.c.o
 main: CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o
 main: CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o
 main: CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o
@@ -269,7 +285,7 @@ main: CMakeFiles/main.dir/src/systemManager/systemInfo.c.o
 main: CMakeFiles/main.dir/src/systemManager/systemManager.c.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lephuc/embedded-system-monitoring/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

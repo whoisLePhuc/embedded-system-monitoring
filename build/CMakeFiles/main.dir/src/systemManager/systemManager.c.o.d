@@ -52,4 +52,5 @@ CMakeFiles/main.dir/src/systemManager/systemManager.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h \
- /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

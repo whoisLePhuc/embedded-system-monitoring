@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/lephuc/embedded-system-monitoring/inc -I/home/lephuc/embedded-system-monitoring/inc/cpuManager -I/home/lephuc/embedded-system-monitoring/inc/memoryManager -I/home/lephuc/embedded-system-monitoring/inc/networkManager -I/home/lephuc/embedded-system-monitoring/inc/storageManager -I/home/lephuc/embedded-system-monitoring/inc/systemManager -I/home/lephuc/embedded-system-monitoring/inc/monitorManager
+C_INCLUDES = -I/home/lephuc/embedded-system-monitoring/inc -I/home/lephuc/embedded-system-monitoring/inc/cpuManager -I/home/lephuc/embedded-system-monitoring/inc/memoryManager -I/home/lephuc/embedded-system-monitoring/inc/networkManager -I/home/lephuc/embedded-system-monitoring/inc/storageManager -I/home/lephuc/embedded-system-monitoring/inc/systemManager -I/home/lephuc/embedded-system-monitoring/inc/monitorManager -I/home/lephuc/embedded-system-monitoring/inc/logger
 
-C_FLAGS = 
+C_FLAGS = -g
 

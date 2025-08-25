@@ -5,11 +5,12 @@
 #include <sys/statfs.h>
 #include "storageManager/storageManager.h"
 #include "storageManager/storageInfo.h"
+#include "logger/logger.h"
 
 storageManager *createStorageManager() {
     storageManager *manager = (storageManager *)malloc(sizeof(storageManager));
     if (manager == NULL) {
-        fprintf(stderr, "Failed to allocate memory for storageManager\n");
+        logMessage(LOG_ERROR, "Failed to allocate memory for storageManager");
         return NULL;
     }
     memset(manager, 0, sizeof(storageManager));
@@ -24,7 +25,7 @@ void destroyStorageManager(storageManager *self) {
         free(self);
         self = NULL;
     } else {
-        fprintf(stderr, "Attempted to free a NULL storageManager pointer\n");
+        logMessage(LOG_WARNING, "Attempted to free a NULL storageManager pointer");
     }
 }
 
@@ -36,17 +37,14 @@ void updateStorageInfo(storageManager *self){
 
 void displayStorageInfo(storageManager *self) {
     if (self == NULL) {
-        fprintf(stderr, "Cannot display info from a NULL manager.\n");
+        logMessage(LOG_ERROR, "Cannot display info from a NULL manager.");
         return;
     }
     PartitionInfo *partitions = self->memory_info;
     DiskIOInfo *io_stats = self->disk_io_info;
     int partition_count = MAX_PARTITIONS;
     int disk_count = MAX_DISKS;
-    
-    system("clear");
     printf("==================== STORAGE MONITOR ====================\n");
-    
     printf("Partition Info:\n");
     for (int i = 0; i < partition_count; i++) {
         // You would need to check if the partition is valid, for example, by checking if the name is not empty
@@ -58,7 +56,6 @@ void displayStorageInfo(storageManager *self) {
             printf("\n");
         }
     }
-    
     printf("---------------------------------------------------------\n");
     printf("Disk I/O Stats:\n");
     for (int i = 0; i < disk_count; i++) {

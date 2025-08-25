@@ -83,4 +83,5 @@ CMakeFiles/main.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h \
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h \
- /home/lephuc/embedded-system-monitoring/inc/monitorManager/monitorManager.h
+ /home/lephuc/embedded-system-monitoring/inc/monitorManager/monitorManager.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

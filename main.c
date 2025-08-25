@@ -7,20 +7,24 @@
 #include "networkManager/networkManager.h"
 #include "systemManager/systemManager.h"
 #include "monitorManager/monitorManager.h"
+#include "logger/logger.h"
+
 
 int main(){
+    loggerInit(LOG_INFO, "log_file.txt");
     MonitorManager *manager = createMonitorManager();
     if (manager == NULL) {
-        return 1;
+        logMessage(LOG_ERROR, "Failed to create MonitorManager");
     }
     while(1){
         manager->updateInfo(manager);
-        system("clear");
         manager->displayInfo(manager);
     }
     destroyMonitorManager(manager);
+    loggerClose();
     return 0;
 }
+
 
 /*
 int main(){
@@ -87,6 +91,7 @@ int main() {
 
 /*
 int main() {
+    loggerInit(LOG_INFO, "log_file.txt");
     cpuManager *CpuManager = createCpuManager();
     if (CpuManager == NULL) {
         return 1;
@@ -100,3 +105,5 @@ int main() {
     return 0;
 }
 */
+
+

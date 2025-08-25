@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include "cpuManager/cpuManager.h"
 #include "cpuManager/cpuInfo.h"
+#include "logger/logger.h"
 
 // Function to free memory of cpuManager object
 void destroyCpuManager(cpuManager *self){
@@ -13,21 +14,18 @@ void destroyCpuManager(cpuManager *self){
         free(self);
         self = NULL;
     } else {
-        fprintf(stderr, "Attempted to free a NULL cpuManager pointer\n");
+        logMessage(LOG_WARNING, "Attempted to free a NULL cpuManager pointer");
     }
 }
 
 void displayCpuInfo(cpuManager* manager) {
     if (manager == NULL) {
-        fprintf(stderr, "Cannot display info from a NULL manager.\n");
+        logMessage(LOG_ERROR, "Cannot display info from a NULL manager.");
         return;
     }
-
-    system("clear");
     printf("==================== CPU MONITOR ====================\n");
     printf("Total Usage: %.2f%%\n", manager->CpuInfo.totalUsage);
     printf("Temperature: %.2f C\n", manager->CpuInfo.temperature);
-    
     printf("-----------------------------------------------------\n");
     printf("Per-Core Usage & Frequency:\n");
     for (int i = 0; i < manager->CpuInfo.coreCount; i++) {
@@ -36,7 +34,6 @@ void displayCpuInfo(cpuManager* manager) {
                manager->CpuInfo.coreUsage[i], 
                manager->CpuInfo.frequency[i]);
     }
-    
     printf("-----------------------------------------------------\n");
     printf("Top %d Processes:\n", MAX_TOP_PROC);
     printf("%-10s %-20s %-10s\n", "PID", "NAME", "CPU %");
@@ -52,50 +49,57 @@ void displayCpuInfo(cpuManager* manager) {
 }
 
 // Function to update CPU information
-void updateCpuInfo(cpuManager *self){
-    if(self == NULL) {
-        fprintf(stderr, "cpuManager pointer is NULL\n");
+void updateCpuInfo(cpuManager *self) {
+    if (self == NULL) {
+        logMessage(LOG_ERROR, "cpuManager pointer is NULL in updateCpuInfo");
         return;
     }
+    // --- Total CPU Usage ---
     self->CpuInfo.totalUsage = getTotalCpuUsage();
-    if(self->CpuInfo.totalUsage < 0) {
-        fprintf(stderr, "Failed to get CPU total usage\n");
+    if (self->CpuInfo.totalUsage < 0.0f) {  // giả sử hàm trả về <0 nếu lỗi
+        logMessage(LOG_ERROR, "Failed to get CPU total usage");
+        self->CpuInfo.totalUsage = 0.0f;
     }
-
-    int core_count;
-    float* usage_array = get_per_core_cpu_usage(&core_count);
-    if (usage_array != NULL) {
-        if(core_count <= MAX_CORES) {
-            for (int i = 0; i < core_count; i++) {
-                self->CpuInfo.coreUsage[i] = usage_array[i];
-            }
-            self->CpuInfo.coreCount = core_count;
-        } else {
-            fprintf(stderr, "Core count exceeds MAX_CORES\n");
-            self->CpuInfo.coreCount = MAX_CORES;
+    // --- Per-core CPU usage ---
+    int usage_cores = 0;
+    float *usage_array = get_per_core_cpu_usage(&usage_cores);
+    if (usage_array != NULL && usage_cores > 0) {
+        int count = (usage_cores <= MAX_CORES) ? usage_cores : MAX_CORES;
+        for (int i = 0; i < count; i++) {
+            self->CpuInfo.coreUsage[i] = usage_array[i];
         }
+        // Nếu core_count > MAX_CORES, bỏ qua phần dư và log cảnh báo
+        if (usage_cores > MAX_CORES) {
+            logMessage(LOG_WARNING, 
+                       "Core count exceeds MAX_CORES: %d > %d (truncating)", 
+                       usage_cores, MAX_CORES);
+        }
+        self->CpuInfo.coreCount = count;
         free(usage_array);
     } else {
-        fprintf(stderr, "Failed to get per-core CPU usage\n");
+        logMessage(LOG_ERROR, "Failed to get per-core CPU usage");
         self->CpuInfo.coreCount = 0;
+        memset(self->CpuInfo.coreUsage, 0, sizeof(self->CpuInfo.coreUsage));
     }
-
-    float* frequencies = get_cpu_frequency(&core_count);
-    if (frequencies != NULL && core_count == self->CpuInfo.coreCount) {
-        for (int i = 0; i < core_count; i++) {
-            self->CpuInfo.frequency[i] = frequencies[i];
-        }
-        free(frequencies);
-    } else {
-        fprintf(stderr, "Failed to get CPU core frequencies or core count mismatch\n");
-        if(frequencies) free(frequencies);
+    // --- Per-core CPU frequency ---
+    int freq_cores = 0;
+    float *frequencies = get_cpu_frequency(&freq_cores);
+    int n = (freq_cores < self->CpuInfo.coreCount) ? freq_cores : self->CpuInfo.coreCount;
+    for (int i = 0; i < n; i++) {
+        self->CpuInfo.frequency[i] = frequencies[i];
     }
-
+    if (n < self->CpuInfo.coreCount) {
+        memset(&self->CpuInfo.frequency[n], 0,
+        (self->CpuInfo.coreCount - n) * sizeof(float));
+    }
+    free(frequencies);
+    // --- CPU Temperature ---
     self->CpuInfo.temperature = get_cpu_temperature();
-    if(self->CpuInfo.temperature < 0) {
-        fprintf(stderr, "Failed to get CPU temperature\n");
+    if (self->CpuInfo.temperature < 0.0f) {
+        logMessage(LOG_ERROR, "Failed to get CPU temperature");
+        self->CpuInfo.temperature = 0.0f;
     }
-
+    // --- Update top processes ---
     update_top_processes(&self->CpuInfo);
 }
 
@@ -103,7 +107,7 @@ void updateCpuInfo(cpuManager *self){
 cpuManager *createCpuManager() {
     cpuManager *manager = (cpuManager *)malloc(sizeof(cpuManager));
     if (manager == NULL) {
-        perror("Failed to allocate memory for cpuManager");
+        logMessage(LOG_ERROR, "Failed to allocate memory for cpuManager");
         return NULL;
     }
     memset(manager, 0, sizeof(cpuManager));

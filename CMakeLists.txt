@@ -11,6 +11,7 @@ include_directories(
     inc/storageManager
     inc/systemManager
     inc/monitorManager
+    inc/logger
 )
 
 add_executable(main main.c ${SRC_FILES})

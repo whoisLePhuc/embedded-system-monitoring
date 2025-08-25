@@ -5,11 +5,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "memoryManager/memoryManager.h"
+#include "logger/logger.h"
 
 void getMemoryInfo(MemoryInfo *mem_info) {
     FILE *fp = fopen("/proc/meminfo", "r");
     if (!fp) {
-        perror("Error opening /proc/meminfo");
+        logMessage(LOG_ERROR, "Error opening /proc/meminfo");
         memset(mem_info, 0, sizeof(MemoryInfo));
         return;
     }
@@ -49,7 +50,7 @@ void getTopMemoryProcesses(ramProcessInfo topProcesses[], int top_n) {
     int processCount = 0;
     proc_dir = opendir("/proc");
     if (!proc_dir) {
-        perror("Error opening /proc");
+        logMessage(LOG_ERROR, "Error opening /proc");
         return;
     }
     while ((entry = readdir(proc_dir)) != NULL) {
@@ -57,7 +58,7 @@ void getTopMemoryProcesses(ramProcessInfo topProcesses[], int top_n) {
             char path[512];
             char name[MAX_NAME_PROC] = "N/A";
             long vm_rss = 0;
-            snprintf(path, sizeof(path), "/proc/%s/status", entry->d_name);
+            logMessage(LOG_DEBUG, "Reading process info for PID: /proc/%s/status", entry->d_name);
             FILE *fp = fopen(path, "r");
             if (fp) {
                 char line[256];

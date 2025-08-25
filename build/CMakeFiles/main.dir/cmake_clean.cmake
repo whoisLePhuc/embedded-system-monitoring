@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o.d"
   "CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o"
   "CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o.d"
+  "CMakeFiles/main.dir/src/logger/logger.c.o"
+  "CMakeFiles/main.dir/src/logger/logger.c.o.d"
   "CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o"
   "CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o.d"
   "CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o"

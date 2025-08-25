@@ -76,4 +76,5 @@ CMakeFiles/main.dir/src/networkManager/networkInfo.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

@@ -1,0 +1,12 @@
+[2025-08-23 23:26:16] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:86] Failed to get CPU core frequencies or core count mismatch
+[2025-08-23 23:26:16] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:178] Error opening /sys/class/thermal/thermal_zone0/temp
+[2025-08-23 23:26:16] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:91] Failed to get CPU temperature
+[2025-08-23 23:26:17] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:308] Error: Failed to get top processes.
+[2025-08-23 23:26:21] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:86] Failed to get CPU core frequencies or core count mismatch
+[2025-08-23 23:26:21] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:178] Error opening /sys/class/thermal/thermal_zone0/temp
+[2025-08-23 23:26:21] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:91] Failed to get CPU temperature
+[2025-08-23 23:26:22] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:308] Error: Failed to get top processes.
+[2025-08-23 23:26:26] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:86] Failed to get CPU core frequencies or core count mismatch
+[2025-08-23 23:26:26] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:178] Error opening /sys/class/thermal/thermal_zone0/temp
+[2025-08-23 23:26:26] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c:91] Failed to get CPU temperature
+[2025-08-23 23:26:27] [ERROR] [/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c:308] Error: Failed to get top processes.

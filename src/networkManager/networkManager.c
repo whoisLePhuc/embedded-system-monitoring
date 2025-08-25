@@ -3,11 +3,12 @@
 #include <string.h>
 #include <unistd.h>
 #include "networkManager/networkManager.h"
+#include "logger/logger.h"
 
 NetworkManager *createNetworkManager(){
     NetworkManager *manager = (NetworkManager *)malloc(sizeof(NetworkManager));
     if (!manager) {
-        perror("Failed to create NetworkManager");
+        logMessage(LOG_ERROR, "Failed to allocate memory for NetworkManager");
         return NULL;
     }
     memset(manager, 0, sizeof(NetworkManager));
@@ -21,31 +22,26 @@ void destroyNetworkManager(NetworkManager *self){
     if (self) {
         free(self);
     } else {
-        fprintf(stderr, "Attempted to destroy a NULL NetworkManager\n");
+        logMessage(LOG_WARNING, "Attempted to destroy a NULL NetworkManager pointer");
     }
 }
 
 void updateNetworkInfo(NetworkManager *self){
     if (!self) {
-        fprintf(stderr, "NetworkManager is NULL, cannot update network info\n");
+        logMessage(LOG_ERROR, "NetworkManager is NULL, cannot update network info");
         return;
     }
     getNetStats(self->net_io_info, &self->network_IO_count);
-    // Update IP addresses
     getIpAddresses(self->ip_addresses, &self->ip_address_count);
-    
     self->connection_count = get_connection_count();
 }
 
 void displayNetworkInfo(NetworkManager *self) {
     if (self == NULL) {
-        fprintf(stderr, "Cannot display info from a NULL manager.\n");
+        logMessage(LOG_ERROR, "Cannot display info from a NULL manager.");
         return;
     }
-
-    system("clear");
     printf("==================== NETWORK MONITOR ====================\n");
-    
     printf("Network I/O Stats:\n");
     // Giả định bạn có một biến để lưu số lượng giao diện mạng thực tế
     for (int i = 0; i < self->network_IO_count; i++) {
@@ -58,7 +54,6 @@ void displayNetworkInfo(NetworkManager *self) {
             printf("\n");
         }
     }
-    
     printf("---------------------------------------------------------\n");
     printf("IP Addresses:\n");
     // Giả định bạn có một biến để lưu số lượng địa chỉ IP thực tế
@@ -69,7 +64,6 @@ void displayNetworkInfo(NetworkManager *self) {
             printf("\n");
         }
     }
-
     printf("---------------------------------------------------------\n");
     printf("Total Connections: %d\n", self->connection_count);
     printf("=========================================================\n");

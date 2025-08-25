@@ -66,4 +66,5 @@ CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o: \
  /usr/include/x86_64-linux-gnu/bits/dirent_ext.h /usr/include/ctype.h \
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuManager.h \
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h \
- /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

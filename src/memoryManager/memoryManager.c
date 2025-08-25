@@ -5,13 +5,14 @@
 #include <dirent.h>
 #include <ctype.h>
 #include "memoryManager/memoryManager.h"
+#include "logger/logger.h"
 
 void destroyMemoryManager(memoryManager *self){
     if (self != NULL) {
         free(self);
         self = NULL;
     } else {
-        fprintf(stderr, "Attempted to free a NULL memoryManager pointer\n");
+        logMessage(LOG_WARNING, "Attempted to free a NULL memoryManager pointer");
     }
 }
 
@@ -22,13 +23,10 @@ void updateMemoryInfo(memoryManager *self){
 
 void displayMemoryInfo(memoryManager *self) {
     if (self == NULL) {
-        fprintf(stderr, "Cannot display info from a NULL manager.\n");
+        logMessage(LOG_ERROR, "Cannot display info from a NULL manager.");
         return;
     }
-
     MemoryInfo *mem_info = &self->memory_info;
-
-    system("clear");
     printf("==================== MEMORY MONITOR ====================\n");
     printf("RAM Total: %ld MB\n", mem_info->totalRam / 1024);
     printf("RAM Used:  %ld MB\n", mem_info->usedRam / 1024);
@@ -55,7 +53,7 @@ void displayMemoryInfo(memoryManager *self) {
 memoryManager *createMemoryManager(){
     memoryManager *manager = (memoryManager *)malloc(sizeof(memoryManager));
     if (manager == NULL) {
-        fprintf(stderr, "Failed to allocate memory for memoryManager\n");
+        logMessage(LOG_ERROR, "Failed to allocate memory for memoryManager");
         return NULL;
     }
     memset(manager, 0, sizeof(memoryManager));

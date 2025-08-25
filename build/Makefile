@@ -201,6 +201,30 @@ src/cpuManager/cpuManager.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cpuManager/cpuManager.c.s
 .PHONY : src/cpuManager/cpuManager.c.s
 
+src/logger/logger.o: src/logger/logger.c.o
+.PHONY : src/logger/logger.o
+
+# target to build an object file
+src/logger/logger.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/logger/logger.c.o
+.PHONY : src/logger/logger.c.o
+
+src/logger/logger.i: src/logger/logger.c.i
+.PHONY : src/logger/logger.i
+
+# target to preprocess a source file
+src/logger/logger.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/logger/logger.c.i
+.PHONY : src/logger/logger.c.i
+
+src/logger/logger.s: src/logger/logger.c.s
+.PHONY : src/logger/logger.s
+
+# target to generate assembly for a file
+src/logger/logger.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/logger/logger.c.s
+.PHONY : src/logger/logger.c.s
+
 src/memoryManager/memoryInfo.o: src/memoryManager/memoryInfo.c.o
 .PHONY : src/memoryManager/memoryInfo.o
 
@@ -435,6 +459,9 @@ help:
 	@echo "... src/cpuManager/cpuManager.o"
 	@echo "... src/cpuManager/cpuManager.i"
 	@echo "... src/cpuManager/cpuManager.s"
+	@echo "... src/logger/logger.o"
+	@echo "... src/logger/logger.i"
+	@echo "... src/logger/logger.s"
 	@echo "... src/memoryManager/memoryInfo.o"
 	@echo "... src/memoryManager/memoryInfo.i"
 	@echo "... src/memoryManager/memoryInfo.s"

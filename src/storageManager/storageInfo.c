@@ -4,38 +4,34 @@
 #include <sys/statfs.h>
 #include <string.h>
 #include "storageManager/storageInfo.h"
+#include "logger/logger.h"
 
+// Function to get partition information
 void getPartitionInfo(PartitionInfo partitions[], int *count) {
     FILE *fp;
     char line[256];
     *count = 0;
-
     // Đọc file /proc/mounts để lấy danh sách các phân vùng
     fp = fopen("/proc/mounts", "r");
     if (!fp) {
-        perror("Error opening /proc/mounts");
+        logMessage(LOG_ERROR, "Error opening /proc/mounts");
         return;
     }
-
     while (fgets(line, sizeof(line), fp)) {
         char dev[256], mount_point[256], fs_type[256];
         struct statfs fs_stats;
         sscanf(line, "%s %s %s", dev, mount_point, fs_type);
-
         if (*count >= MAX_PARTITIONS) break;
-
-        // Bỏ qua các phân vùng ảo
+        // skip virtual partitions
         if (strncmp(dev, "/dev/", 5) == 0) {
             if (statfs(mount_point, &fs_stats) == 0) {
                 partitions[*count].totalBlocks = fs_stats.f_blocks;
                 partitions[*count].freeBlocks = fs_stats.f_bfree;
                 partitions[*count].usedBlocks = fs_stats.f_blocks - fs_stats.f_bfree;
-
                 long long block_size = fs_stats.f_bsize;
                 partitions[*count].totalSize = (partitions[*count].totalBlocks * block_size) / (1024 * 1024);
                 partitions[*count].freeSize = (partitions[*count].freeBlocks * block_size) / (1024 * 1024);
                 partitions[*count].usedSize = (partitions[*count].usedBlocks * block_size) / (1024 * 1024);
-                
                 strncpy(partitions[*count].partitionName, mount_point, sizeof(partitions[*count].partitionName));
                 (*count)++;
             }
@@ -44,6 +40,7 @@ void getPartitionInfo(PartitionInfo partitions[], int *count) {
     fclose(fp);
 }
 
+// Function to get disk I/O statistics
 void getDiskStats(DiskIOInfo io_info[], int *count) {
     FILE *fp;
     char line[256];
@@ -51,7 +48,7 @@ void getDiskStats(DiskIOInfo io_info[], int *count) {
     *count = 0;
     fp = fopen("/proc/diskstats", "r");
     if (!fp) {
-        perror("Error opening /proc/diskstats");
+        logMessage(LOG_ERROR, "Error opening /proc/diskstats");
         return;
     }
     while (fgets(line, sizeof(line), fp)) {
@@ -71,7 +68,7 @@ void getDiskStats(DiskIOInfo io_info[], int *count) {
     sleep(1);
     fp = fopen("/proc/diskstats", "r");
     if (!fp) {
-        perror("Error opening /proc/diskstats");
+        logMessage(LOG_ERROR, "Error opening /proc/diskstats");
         return;
     }
     for (int i = 0; i < *count; i++) {
@@ -86,12 +83,10 @@ void getDiskStats(DiskIOInfo io_info[], int *count) {
                 float write_delta_sectors = (float)(sectors_written - snapshots[i].sectors_written_pre);
                 io_info[i].read_speed_mbps = read_delta_sectors * 512 / (1024 * 1024);
                 io_info[i].write_speed_mbps = write_delta_sectors * 512 / (1024 * 1024);
-
                 unsigned long long read_delta_count = reads_completed - snapshots[i].reads_completed_pre;
                 unsigned long long write_delta_count = writes_completed - snapshots[i].writes_completed_pre;
                 io_info[i].reads_per_second = read_delta_count;
-                io_info[i].writes_per_second = write_delta_count;
-                
+                io_info[i].writes_per_second = write_delta_count; 
                 strncpy(io_info[i].name, snapshots[i].name, sizeof(io_info[i].name));
                 
                 break;

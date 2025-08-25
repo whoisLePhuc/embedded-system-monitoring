@@ -65,4 +65,5 @@ CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /usr/include/x86_64-linux-gnu/bits/dirent_ext.h /usr/include/ctype.h \
  /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryManager.h \
- /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

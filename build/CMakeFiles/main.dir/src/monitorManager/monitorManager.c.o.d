@@ -77,4 +77,5 @@ CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h \
- /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

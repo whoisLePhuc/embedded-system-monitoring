@@ -96,6 +96,7 @@ CMakeFiles/main.dir/main.c.o
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
  /home/lephuc/embedded-system-monitoring/inc/monitorManager/monitorManager.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o
  /home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c
@@ -174,6 +175,7 @@ CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o
  /usr/include/ctype.h
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuManager.h
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o
  /home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c
@@ -253,6 +255,51 @@ CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuManager.h
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
+
+CMakeFiles/main.dir/src/logger/logger.c.o
+ /home/lephuc/embedded-system-monitoring/src/logger/logger.c
+ /usr/include/stdc-predef.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
+ /usr/include/time.h
+ /usr/include/features.h
+ /usr/include/features-time64.h
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/bits/timesize.h
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h
+ /usr/include/x86_64-linux-gnu/bits/long-double.h
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h
+ /usr/include/x86_64-linux-gnu/bits/time.h
+ /usr/include/x86_64-linux-gnu/bits/types.h
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h
+ /usr/include/x86_64-linux-gnu/bits/time64.h
+ /usr/include/x86_64-linux-gnu/bits/types/clock_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/time_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h
+ /usr/include/x86_64-linux-gnu/bits/endian.h
+ /usr/include/x86_64-linux-gnu/bits/endianness.h
+ /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/timer_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
+ /usr/include/string.h
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
+ /usr/include/strings.h
+ /usr/include/stdio.h
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+ /usr/include/x86_64-linux-gnu/bits/floatn.h
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h
 
 CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o
  /home/lephuc/embedded-system-monitoring/src/memoryManager/memoryInfo.c
@@ -331,6 +378,7 @@ CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o
  /usr/include/ctype.h
  /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryManager.h
  /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o
  /home/lephuc/embedded-system-monitoring/src/memoryManager/memoryManager.c
@@ -409,6 +457,7 @@ CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o
  /usr/include/ctype.h
  /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryManager.h
  /home/lephuc/embedded-system-monitoring/inc/memoryManager/memoryInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o
  /home/lephuc/embedded-system-monitoring/src/monitorManager/monitorManager.c
@@ -498,6 +547,7 @@ CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o
  /usr/include/arpa/inet.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/networkManager/networkInfo.c.o
  /home/lephuc/embedded-system-monitoring/src/networkManager/networkInfo.c
@@ -588,6 +638,7 @@ CMakeFiles/main.dir/src/networkManager/networkInfo.c.o
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /usr/include/x86_64-linux-gnu/bits/in.h
  /usr/include/arpa/inet.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/networkManager/networkManager.c.o
  /home/lephuc/embedded-system-monitoring/src/networkManager/networkManager.c
@@ -679,6 +730,7 @@ CMakeFiles/main.dir/src/networkManager/networkManager.c.o
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /usr/include/x86_64-linux-gnu/bits/in.h
  /usr/include/arpa/inet.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/storageManager/storageInfo.c.o
  /home/lephuc/embedded-system-monitoring/src/storageManager/storageInfo.c
@@ -749,6 +801,7 @@ CMakeFiles/main.dir/src/storageManager/storageInfo.c.o
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
  /usr/include/strings.h
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/storageManager/storageManager.c.o
  /home/lephuc/embedded-system-monitoring/src/storageManager/storageManager.c
@@ -821,6 +874,7 @@ CMakeFiles/main.dir/src/storageManager/storageManager.c.o
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageManager.h
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/systemManager/systemInfo.c.o
  /home/lephuc/embedded-system-monitoring/src/systemManager/systemInfo.c
@@ -888,6 +942,7 @@ CMakeFiles/main.dir/src/systemManager/systemInfo.c.o
  /usr/include/x86_64-linux-gnu/sys/utsname.h
  /usr/include/x86_64-linux-gnu/bits/utsname.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 
 CMakeFiles/main.dir/src/systemManager/systemManager.c.o
  /home/lephuc/embedded-system-monitoring/src/systemManager/systemManager.c
@@ -950,4 +1005,5 @@ CMakeFiles/main.dir/src/systemManager/systemManager.c.o
  /usr/include/strings.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemManager.h
  /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h
 

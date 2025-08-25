@@ -61,4 +61,5 @@ CMakeFiles/main.dir/src/storageManager/storageManager.c.o: \
  /usr/include/x86_64-linux-gnu/bits/statfs.h \
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageManager.h \
  /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h \
- /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/storageManager/storageInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

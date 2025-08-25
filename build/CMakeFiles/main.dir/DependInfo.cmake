@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lephuc/embedded-system-monitoring/main.c" "CMakeFiles/main.dir/main.c.o" "gcc" "CMakeFiles/main.dir/main.c.o.d"
   "/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuInfo.c" "CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o" "gcc" "CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o.d"
   "/home/lephuc/embedded-system-monitoring/src/cpuManager/cpuManager.c" "CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o" "gcc" "CMakeFiles/main.dir/src/cpuManager/cpuManager.c.o.d"
+  "/home/lephuc/embedded-system-monitoring/src/logger/logger.c" "CMakeFiles/main.dir/src/logger/logger.c.o" "gcc" "CMakeFiles/main.dir/src/logger/logger.c.o.d"
   "/home/lephuc/embedded-system-monitoring/src/memoryManager/memoryInfo.c" "CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o" "gcc" "CMakeFiles/main.dir/src/memoryManager/memoryInfo.c.o.d"
   "/home/lephuc/embedded-system-monitoring/src/memoryManager/memoryManager.c" "CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o" "gcc" "CMakeFiles/main.dir/src/memoryManager/memoryManager.c.o.d"
   "/home/lephuc/embedded-system-monitoring/src/monitorManager/monitorManager.c" "CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o" "gcc" "CMakeFiles/main.dir/src/monitorManager/monitorManager.c.o.d"

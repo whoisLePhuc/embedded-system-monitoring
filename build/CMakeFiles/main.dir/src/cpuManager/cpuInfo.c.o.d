@@ -65,4 +65,5 @@ CMakeFiles/main.dir/src/cpuManager/cpuInfo.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/ctype.h \
  /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuManager.h \
- /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/cpuManager/cpuInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

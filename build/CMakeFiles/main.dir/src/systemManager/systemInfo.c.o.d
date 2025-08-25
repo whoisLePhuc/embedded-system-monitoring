@@ -56,4 +56,5 @@ CMakeFiles/main.dir/src/systemManager/systemInfo.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/sys/utsname.h \
  /usr/include/x86_64-linux-gnu/bits/utsname.h \
- /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h
+ /home/lephuc/embedded-system-monitoring/inc/systemManager/systemInfo.h \
+ /home/lephuc/embedded-system-monitoring/inc/logger/logger.h

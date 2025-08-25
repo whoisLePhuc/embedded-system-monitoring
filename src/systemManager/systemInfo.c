@@ -4,30 +4,32 @@
 #include <time.h>
 #include <sys/utsname.h>
 #include "systemManager/systemInfo.h"
+#include "logger/logger.h"
 
+// Function to get system uptime, load average, and idle time
 void getSystemInfo(SystemInfo *info) {
     FILE *uptime_fp = fopen("/proc/uptime", "r");
     if (uptime_fp) {
         fscanf(uptime_fp, "%lf %lf", &info->uptime_seconds, &info->idle_seconds);
         fclose(uptime_fp);
     } else {
-        perror("Error opening /proc/uptime");
+        logMessage(LOG_ERROR, "Error opening /proc/uptime");
         info->uptime_seconds = -1.0;
         info->idle_seconds = -1.0;
     }
-
     FILE *load_fp = fopen("/proc/loadavg", "r");
     if (load_fp) {
         fscanf(load_fp, "%lf %lf %lf", &info->load_avg[0], &info->load_avg[1], &info->load_avg[2]);
         fclose(load_fp);
     } else {
-        perror("Error opening /proc/loadavg");
+        logMessage(LOG_ERROR, "Error opening /proc/loadavg");
         info->load_avg[0] = -1.0;
         info->load_avg[1] = -1.0;
         info->load_avg[2] = -1.0;
     }
 }
 
+// Function to get system time and kernel version
 void getSystemDetails(SystemDetails *details) {
     // Get system time
     time_t raw_time;
@@ -35,7 +37,6 @@ void getSystemDetails(SystemDetails *details) {
     time(&raw_time);
     info = localtime(&raw_time);
     strftime(details->system_time, sizeof(details->system_time), "%Y-%m-%d %H:%M:%S", info);
-
     // Get kernel version
     FILE *fp = fopen("/proc/version", "r");
     if (fp) {
@@ -44,20 +45,20 @@ void getSystemDetails(SystemDetails *details) {
         // Remove trailing newline
         details->kernel_version[strcspn(details->kernel_version, "\n")] = 0;
     } else {
-        perror("Error opening /proc/version");
+        logMessage(LOG_ERROR, "Error opening /proc/version");
         strncpy(details->kernel_version, "N/A", sizeof(details->kernel_version));
     }
 }
 
+// Function to get list of active services using systemctl
 void getActiveServices(ServiceInfo services[], int *count) {
     FILE *fp;
     char line[512];
     *count = 0;
-
     // Use popen to run the systemctl command and read its output
     fp = popen("systemctl list-units --type=service --state=active --no-pager", "r");
     if (fp == NULL) {
-        perror("Failed to run systemctl command");
+        logMessage(LOG_ERROR, "Failed to run systemctl command");
         return;
     }
 
@@ -65,7 +66,6 @@ void getActiveServices(ServiceInfo services[], int *count) {
     fgets(line, sizeof(line), fp);
     fgets(line, sizeof(line), fp);
     fgets(line, sizeof(line), fp);
-
     while (fgets(line, sizeof(line), fp)) {
         if (*count >= MAX_ACTIVE_SERVICES) break;
         char name[128], description[256], unit_file[128];

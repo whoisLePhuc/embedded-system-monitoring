@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "networkManager/networkInfo.h"
+#include "logger/logger.h"
 
 void getNetStats(NetIOInfo io_info[], int *count) {
     FILE *fp;
@@ -10,13 +11,12 @@ void getNetStats(NetIOInfo io_info[], int *count) {
     NetStatsSnapshot snapshots[MAX_INTERFACES];
     int pre_count = 0;
 
-    // --- Chụp ảnh lần 1 ---
+    // --- Get initial net information ---
     fp = fopen("/proc/net/dev", "r");
     if (!fp) {
-        perror("Error opening /proc/net/dev");
+        logMessage(LOG_ERROR, "Error opening /proc/net/dev");
         return;
     }
-    // Bỏ qua 2 dòng đầu
     fgets(line, sizeof(line), fp);
     fgets(line, sizeof(line), fp);
     while (fgets(line, sizeof(line), fp)) {
@@ -26,9 +26,7 @@ void getNetStats(NetIOInfo io_info[], int *count) {
         sscanf(line, "%s %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
                device, &rx_bytes, &rx_packets, &discard, &discard, &discard, &discard, &discard, &discard,
                &tx_bytes, &tx_packets, &discard, &discard, &discard, &discard, &discard, &discard);
-        
-        device[strlen(device) - 1] = '\0'; // Bỏ dấu ':'
-        
+        device[strlen(device) - 1] = '\0'; // remove ':'
         snapshots[pre_count].rx_bytes_pre = rx_bytes;
         snapshots[pre_count].tx_bytes_pre = tx_bytes;
         snapshots[pre_count].rx_packets_pre = rx_packets;
@@ -37,14 +35,11 @@ void getNetStats(NetIOInfo io_info[], int *count) {
         pre_count++;
     }
     fclose(fp);
-
-    // --- Chờ 1 giây ---
     sleep(1);
-
-    // --- Chụp ảnh lần 2 và tính toán ---
+    // --- Take second information and calculate ---
     fp = fopen("/proc/net/dev", "r");
     if (!fp) {
-        perror("Error opening /proc/net/dev");
+        logMessage(LOG_ERROR, "Error opening /proc/net/dev");
         return;
     }
     fgets(line, sizeof(line), fp);
@@ -59,16 +54,15 @@ void getNetStats(NetIOInfo io_info[], int *count) {
                &tx_bytes, &tx_packets, &discard, &discard, &discard, &discard, &discard, &discard);
         device[strlen(device) - 1] = '\0';
 
-        // Tìm thiết bị tương ứng từ lần chụp đầu
+        // Find matching previous snapshot
         for (int i = 0; i < pre_count; i++) {
             if (strcmp(snapshots[i].name, device) == 0) {
-                // Tốc độ (tính bằng KB/s)
+                // speed in KB/s
                 io_info[*count].download_speed_kbps = (float)(rx_bytes - snapshots[i].rx_bytes_pre) / 1024.0;
                 io_info[*count].upload_speed_kbps = (float)(tx_bytes - snapshots[i].tx_bytes_pre) / 1024.0;
-                // Thống kê gói tin
+                // packet per sec
                 io_info[*count].rx_packets_per_sec = rx_packets - snapshots[i].rx_packets_pre;
                 io_info[*count].tx_packets_per_sec = tx_packets - snapshots[i].tx_packets_pre;
-                
                 strncpy(io_info[*count].name, device, sizeof(io_info[*count].name));
                 (*count)++;
                 break;
@@ -78,23 +72,27 @@ void getNetStats(NetIOInfo io_info[], int *count) {
     fclose(fp);
 }
 
+// Function to get IP addresses of all network interfaces
 void getIpAddresses(IPAddressInfo ip_info[], int *count) {
     struct ifaddrs *ifaddr, *ifa;
     *count = 0;
-
     if (getifaddrs(&ifaddr) == -1) {
-        perror("getifaddrs");
+        logMessage(LOG_ERROR, "Error getting network interfaces");
         return;
     }
     for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
-        if (*count >= MAX_IP_ADDRESSES) break;
-        if (ifa->ifa_addr == NULL) continue;
+        if (*count >= MAX_IP_ADDRESSES){
+            logMessage(LOG_WARNING, "Maximum IP address count reached: %d", MAX_IP_ADDRESSES);
+            break;
+        }
+        if (ifa->ifa_addr == NULL) {
+            continue;
+        }
         int family = ifa->ifa_addr->sa_family;
         if (family == AF_INET) {
             char ip[INET_ADDRSTRLEN];
             struct sockaddr_in *sa = (struct sockaddr_in *) ifa->ifa_addr;
             inet_ntop(AF_INET, &(sa->sin_addr), ip, INET_ADDRSTRLEN);
-            
             strncpy(ip_info[*count].name, ifa->ifa_name, sizeof(ip_info[*count].name));
             strncpy(ip_info[*count].ip_address, ip, sizeof(ip_info[*count].ip_address));
             (*count)++;
@@ -103,21 +101,19 @@ void getIpAddresses(IPAddressInfo ip_info[], int *count) {
     freeifaddrs(ifaddr);
 }
 
+// Function to get the number of active TCP connections
 int get_connection_count() {
     FILE *fp;
     char line[256];
     int count = 0;
-
-    // Đếm số dòng trong file chứa thông tin kết nối TCP
+    // Call the ss command to get TCP connections
     fp = popen("ss -t -a | wc -l", "r");
     if (fp == NULL) {
-        perror("Failed to run ss command");
+        logMessage(LOG_ERROR, "Failed to run ss command");
         return -1;
     }
     fgets(line, sizeof(line), fp);
     sscanf(line, "%d", &count);
     pclose(fp);
-    
-    // Trừ đi 1 cho dòng tiêu đề
     return count > 0 ? count - 1 : 0;
 }
